@@ -17,7 +17,7 @@ import { AnimatePresence } from "framer-motion";
 function App() {
   const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem("token"));
 
-  const [routeHistory, setRouteHistory] = useState([]);
+  const [routeHistory, setRouteHistory] = useState<string[]>([]);
 
   const location = useLocation();
 

@@ -25,11 +25,11 @@ export function EditBlogPage() {
   const [titleValue, setTitleValue] = useState(blogData?.title);
   const [contentValue, setContentValue] = useState(blogData?.content);
 
-  const handleTitleChange = (e) => {
+  const handleTitleChange: React.ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     setTitleValue(e.target.value);
   };
 
-  const handleContentChange = (e) => {
+  const handleContentChange: React.ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     setContentValue(e.target.value);
   };
 
@@ -44,7 +44,7 @@ export function EditBlogPage() {
 
   const { deleteBlog, deleteLoading } = useDeleteBlog(blogData, navigate);
 
-  const { routeHistory, setRouteHistory } = useContext(RouteHistoryContext);
+  const { setRouteHistory } = useContext(RouteHistoryContext);
 
   useEffect(() => {
     setRouteHistory((prevHistory: string[]) => [...prevHistory, "/editBlog"]);
@@ -133,15 +133,17 @@ const useUpdateBlogLocally = (
   useEffect(() => {
     return () => {
       const myBlogs = localStorage.getItem("myBlogs");
-      const storedBlogs = JSON.parse(myBlogs) || [];
-      if (storedBlogs.length > 0) {
-        const indexToUpdate = storedBlogs.findIndex(
-          (blog) => blog._id === blogData._id,
-        );
-        if (indexToUpdate !== -1 && indexToUpdate < storedBlogs.length) {
-          storedBlogs[indexToUpdate].title = titleValue;
-          storedBlogs[indexToUpdate].content = contentValue;
-          localStorage.setItem("myBlogs", JSON.stringify(storedBlogs));
+      if(myBlogs !== null){
+        const storedBlogs = JSON.parse(myBlogs) || [];
+        if (storedBlogs.length > 0) {
+          const indexToUpdate = storedBlogs.findIndex(
+            (blog: Blog) => blog._id === blogData._id,
+          );
+          if (indexToUpdate !== -1 && indexToUpdate < storedBlogs.length) {
+            storedBlogs[indexToUpdate].title = titleValue;
+            storedBlogs[indexToUpdate].content = contentValue;
+            localStorage.setItem("myBlogs", JSON.stringify(storedBlogs));
+          }
         }
       }
     };
@@ -153,18 +155,20 @@ const useDeleteBlog = (blogData: Blog, navigate: NavigateFunction) => {
 
   const deleteBlogLocally = () => {
     const myBlogs = localStorage.getItem("myBlogs");
-    const storedBlogs = JSON.parse(myBlogs) || [];
-    const updatedBlogs = storedBlogs.filter(
-      (blog: Blog) => blog._id !== blogData._id,
-    );
-    localStorage.setItem("myBlogs", JSON.stringify(updatedBlogs));
+    if(myBlogs !== null){
+      const storedBlogs = JSON.parse(myBlogs) || [];
+      const updatedBlogs = storedBlogs.filter(
+        (blog: Blog) => blog._id !== blogData._id,
+      );
+      localStorage.setItem("myBlogs", JSON.stringify(updatedBlogs));
+    }
   };
 
   const deleteBlog = async () => {
     setDeleteLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.delete(
+      await axios.delete(
         `http://localhost:3000/posts/${blogData._id}`,
         {
           headers: {

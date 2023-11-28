@@ -5,10 +5,10 @@ type RouteHistoryContextType = {
   setRouteHistory: Dispatch<SetStateAction<string[]>>;
 };
 
-export const RouteHistoryContext = createContext<
-  RouteHistoryContextType | undefined
->(undefined);
-
+export const RouteHistoryContext = createContext<RouteHistoryContextType>({
+  routeHistory: [],
+  setRouteHistory: () => {}, // Provide a dummy function if necessary
+});
 /*
 export const useRouteHistory = () => {
   const context = useContext(RouteHistoryContext);

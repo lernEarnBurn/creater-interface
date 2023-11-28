@@ -8,7 +8,7 @@ import { CreateBtnBar } from "./CreateBackBar";
 import axios from "axios";
 
 export function CreateBlogPage() {
-  const { routeHistory, setRouteHistory } = useContext(RouteHistoryContext);
+  const { setRouteHistory } = useContext(RouteHistoryContext);
 
   useEffect(() => {
     setRouteHistory((prevHistory: string[]) => [...prevHistory, "/createBlog"]);
@@ -23,11 +23,11 @@ export function CreateBlogPage() {
   const [titleValue, setTitleValue] = useState("Title");
   const [contentValue, setContentValue] = useState("Content");
 
-  const handleTitleChange = (e) => {
+  const handleTitleChange: React.ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     setTitleValue(e.target.value);
   };
 
-  const handleContentChange = (e) => {
+  const handleContentChange: React.ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     setContentValue(e.target.value);
   };
 
@@ -86,14 +86,16 @@ const useCreateBlog = (
 ) => {
   const createBlogLocally = () => {
     const myBlogs = localStorage.getItem("myBlogs");
-    const storedBlogs = JSON.parse(myBlogs) || [];
-    if (Array.isArray(JSON.parse(storedBlogs))) {
-      const updatedBlogs = storedBlogs.push({
-        author: localStorage.getItem("username"),
-        title: title,
-        content: content,
-      });
-      localStorage.setItem("myBlogs", JSON.stringify(updatedBlogs));
+    if(myBlogs !== null){
+      const storedBlogs = JSON.parse(myBlogs) || [];
+      if (Array.isArray(JSON.parse(storedBlogs))) {
+        const updatedBlogs = storedBlogs.push({
+          author: localStorage.getItem("username"),
+          title: title,
+          content: content,
+        });
+        localStorage.setItem("myBlogs", JSON.stringify(updatedBlogs));
+      }
     }
   };
 
@@ -115,7 +117,7 @@ const useCreateBlog = (
         },
       };
 
-      const response = await axios.post(
+      await axios.post(
         `http://localhost:3000/posts`,
         data,
         config,
