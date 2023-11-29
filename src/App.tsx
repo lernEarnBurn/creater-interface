@@ -21,11 +21,6 @@ function App() {
 
   const location = useLocation();
 
-  //now need to run prettier
-  //need to host all 3 parts
-  //wire the front ends up to each other
-  //populate some comments
-  //Make readMe properly
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
@@ -36,20 +31,20 @@ function App() {
             <Route
               path="/creater-interface/"
               element={
-                loggedIn ? <Navigate to="/blogs" /> : <Navigate to="/log-in" />
+                loggedIn ? <Navigate to="/creater-interface/blogs" /> : <Navigate to="/creater-interface/log-in" />
               }
             />
             <Route
-              path="/log-in"
+              path="/creater-interface/log-in"
               element={<LoginForm setLoggedIn={setLoggedIn} />}
             />
             <Route
-              path="/sign-up"
+              path="/creater-interface/sign-up"
               element={<SignupForm setLoggedIn={setLoggedIn} />}
             />
-            <Route path="/blogs" element={<MyBlogMenu />} />
-            <Route path="/blogs/:postId" element={<EditBlogPage />} />
-            <Route path="/blogs/create-blog" element={<CreateBlogPage />} />
+            <Route path="/creater-interface/blogs" element={<MyBlogMenu />} />
+            <Route path="/creater-interface/blogs/:postId" element={<EditBlogPage />} />
+            <Route path="/creater-interface/blogs/create-blog" element={<CreateBlogPage />} />
           </Routes>
         </AnimatePresence>
       </RouteHistoryContext.Provider>

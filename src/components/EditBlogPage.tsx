@@ -178,7 +178,7 @@ const useDeleteBlog = (blogData: Blog, navigate: NavigateFunction) => {
       );
       deleteBlogLocally();
       setDeleteLoading(false);
-      navigate("/blogs");
+      navigate("/creater-interface/blogs");
     } catch (err) {
       console.log(err);
     }

@@ -50,7 +50,7 @@ export function MyBlogMenu() {
     localStorage.setItem("selectedMyBlog", JSON.stringify(blog));
 
     setTimeout(() => {
-      navigate(`/blogs/${blog._id}`);
+      navigate(`/creater-interface/blogs/${blog._id}`);
     }, 350);
   }
 
@@ -58,7 +58,7 @@ export function MyBlogMenu() {
 
   function toCreateBlog() {
     setAnimateToCreateBlog(true);
-    navigate("/blogs/create-blog");
+    navigate("/creater-interface/blogs/create-blog");
   }
 
   const { routeHistory, setRouteHistory } = useContext(RouteHistoryContext);

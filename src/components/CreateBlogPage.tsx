@@ -124,7 +124,7 @@ const useCreateBlog = (
       );
       createBlogLocally();
       setCreateLoading(false);
-      navigate("/blogs");
+      navigate("/creater-interface/blogs");
     } catch (err) {
       console.log(err);
     }
