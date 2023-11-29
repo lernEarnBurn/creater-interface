@@ -52,7 +52,7 @@ export function NavBar(props: navBarProps) {
         scrolledDown ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <a className="text-2xl ml-16" href="http://localhost:5333/">
+      <a className="text-2xl ml-16" href="https://lernearnburn.github.io/viewing-interface/">
         View Blogs
       </a>
       <h1 className="z-20">Blog Creator</h1>
