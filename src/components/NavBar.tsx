@@ -67,7 +67,7 @@ export function NavBar(props: navBarProps) {
           </a>
         )}
         {!props.loggedIn && (
-          <Link className="cursor-pointer w-16 text-lg" to="/log-in">
+          <Link className="cursor-pointer w-16 text-lg" to="/creater-interface/log-in">
             Log In
           </Link>
         )}
