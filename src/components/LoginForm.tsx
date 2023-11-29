@@ -46,7 +46,7 @@ export function LoginForm(props: loginFormProps) {
         setShowErrorMessage(false);
         props.setLoggedIn(true);
         setLoading(false);
-        navigate("/");
+        navigate("/creater-interface/");
       } else {
         setLoading(false);
         setShowErrorMessage(true);
