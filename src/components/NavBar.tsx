@@ -17,7 +17,7 @@ export function NavBar(props: navBarProps) {
     localStorage.removeItem("selectedMyBlog");
     localStorage.removeItem("user");
     props.setLoggedIn(false);
-    navigate("/");
+    navigate("/creater-interface/");
   }
 
   const [scrolledDown, setScrolledDown] = useState(false);
