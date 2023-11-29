@@ -34,7 +34,7 @@ function App() {
         <AnimatePresence mode="wait" initial={false}>
           <Routes location={location} key={location.pathname}>
             <Route
-              path="/"
+              path="/creater-interface"
               element={
                 loggedIn ? <Navigate to="/blogs" /> : <Navigate to="/log-in" />
               }
