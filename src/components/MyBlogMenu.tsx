@@ -116,8 +116,6 @@ function useFetchMyBlogs() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(false);
 
-  console.log(`blogs: ${blogs}`);
-
   useEffect(() => {
     const getMyBlogs = async () => {
       const storedBlogs = localStorage.getItem("myBlogs");
@@ -143,7 +141,6 @@ function useFetchMyBlogs() {
     };
 
     getMyBlogs();
-    console.log(`blogs: ${blogs}`);
   }, []);
 
   return { blogs, loading };

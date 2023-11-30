@@ -88,7 +88,7 @@ const useCreateBlog = (
     const myBlogs = localStorage.getItem("myBlogs");
     if(myBlogs !== null){
       const storedBlogs = JSON.parse(myBlogs) || [];
-      if (Array.isArray(JSON.parse(storedBlogs))) {
+      if (Array.isArray(storedBlogs)) {
         const updatedBlogs = storedBlogs.push({
           author: localStorage.getItem("username"),
           title: title,
@@ -102,7 +102,6 @@ const useCreateBlog = (
   const [createLoading, setCreateLoading] = useState(false);
 
   const createBlog = async () => {
-    console.log("ran");
     setCreateLoading(true);
     try {
       const data = {
