@@ -117,7 +117,7 @@ const useCreateBlog = (
       };
 
       await axios.post(
-        `http://localhost:3000/posts`,
+        `http://13.58.53.141:3000/posts`,
         data,
         config,
       );

@@ -49,14 +49,14 @@ export function SignupForm(props: signUpFormProps) {
       try {
         setShowErrorMessage(false);
 
-        const response = await axios.post("http://localhost:3000/sign-up", {
+        const response = await axios.post("http://13.58.53.141:3000/sign-up", {
           username: usernameRef.current?.value.trim(),
           password: passwordRef.current?.value.trim(),
         });
 
         //if it succeeds than auto login
         if (response.data.user) {
-          const logIn = await axios.post("http://localhost:3000/log-in", {
+          const logIn = await axios.post("http://13.58.53.141:3000/log-in", {
             username: usernameRef.current?.value.trim(),
             password: passwordRef.current?.value.trim(),
           });

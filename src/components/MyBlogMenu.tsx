@@ -129,7 +129,7 @@ function useFetchMyBlogs() {
             const user = JSON.parse(userString);
             setLoading(true);
             const response = await axios.get(
-              `http://localhost:3000/posts/${user._id}`,
+              `http://13.58.53.141:3000/posts/${user._id}`,
             );
             setBlogs(response.data);
             setLoading(false);

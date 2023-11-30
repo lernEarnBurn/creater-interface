@@ -102,7 +102,7 @@ const useUpdateBlogOnDb = (
     try {
       console.log("saving blog...");
       await axios.put(
-        `http://localhost:3000/posts/${blogData._id}`,
+        `http://13.58.53.141:3000/posts/${blogData._id}`,
         { newTitle: titleValue, newContent: contentValue },
         {
           headers: {
@@ -169,7 +169,7 @@ const useDeleteBlog = (blogData: Blog, navigate: NavigateFunction) => {
     try {
       const token = localStorage.getItem("token");
       await axios.delete(
-        `http://localhost:3000/posts/${blogData._id}`,
+        `http://13.58.53.141:3000/posts/${blogData._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
