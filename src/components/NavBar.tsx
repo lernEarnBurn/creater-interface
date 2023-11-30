@@ -15,6 +15,8 @@ export function NavBar(props: navBarProps) {
     localStorage.removeItem("token");
     localStorage.removeItem("myBlogs");
     localStorage.removeItem("selectedMyBlog");
+    localStorage.removeItem("allBlogs");
+    localStorage.removeItem("selectedBlog");
     localStorage.removeItem("user");
     props.setLoggedIn(false);
     navigate("/creater-interface/");
