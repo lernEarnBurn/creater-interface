@@ -117,7 +117,7 @@ const useCreateBlog = (
       };
 
       await axios.post(
-        `http://13.58.53.141:3000/posts`,
+        `https://fierce-dawn-84888-34f3e45a7f77.herokuapp.com/posts`,
         data,
         config,
       );

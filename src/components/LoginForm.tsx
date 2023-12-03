@@ -35,7 +35,7 @@ export function LoginForm(props: loginFormProps) {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://13.58.53.141:3000/log-in", {
+      const response = await axios.post("https://fierce-dawn-84888-34f3e45a7f77.herokuapp.com/log-in", {
         username: usernameRef.current?.value.trim(),
         password: passwordRef.current?.value.trim(),
       });

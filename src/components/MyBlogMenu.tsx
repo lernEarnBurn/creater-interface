@@ -129,7 +129,7 @@ function useFetchMyBlogs() {
             const user = JSON.parse(userString);
             setLoading(true);
             const response = await axios.get(
-              `http://13.58.53.141:3000/posts/${user._id}`,
+              `https://fierce-dawn-84888-34f3e45a7f77.herokuapp.com/posts/${user._id}`,
             );
             setBlogs(response.data);
             setLoading(false);

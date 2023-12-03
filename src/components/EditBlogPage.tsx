@@ -102,7 +102,7 @@ const useUpdateBlogOnDb = (
     try {
       console.log("saving blog...");
       await axios.put(
-        `http://13.58.53.141:3000/posts/${blogData._id}`,
+        `https://fierce-dawn-84888-34f3e45a7f77.herokuapp.com/posts/${blogData._id}`,
         { newTitle: titleValue, newContent: contentValue },
         {
           headers: {
@@ -169,7 +169,7 @@ const useDeleteBlog = (blogData: Blog, navigate: NavigateFunction) => {
     try {
       const token = localStorage.getItem("token");
       await axios.delete(
-        `http://13.58.53.141:3000/posts/${blogData._id}`,
+        `https://fierce-dawn-84888-34f3e45a7f77.herokuapp.com/posts/${blogData._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
